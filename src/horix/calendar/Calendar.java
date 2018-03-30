@@ -19,15 +19,24 @@ public class Calendar {
 		
 		
 		//숫자를 입력 받아 해당하는 달의 최대 일수를 출력하는 프로그램
+		String PROMPT = "cal > ";
 		Calendar cal = new Calendar();// 클래스 내에서 메소드를 쓰기위해서 인스턴스화
 		Scanner scanner = new Scanner(System.in);
 		cal.printSampleCalendar();
-		System.out.println("반복횟수를 입력 하세요.");
-		int repeat = scanner.nextInt();
-		for(int i=0;i < repeat; i++) {
-		System.out.println("원하는 월을 입력 하세요(1~12)");
-		int inputMonth = scanner.nextInt();
-		System.out.printf("입력한 %d월은 %d일 까지 있습니다. \n",inputMonth, cal.maxDaysofMonth(inputMonth));
+		int inputMonth = 0;
+		
+		while (true) {
+
+			System.out.println("원하는 월을 입력 하세요(1~12)");
+			System.out.print(PROMPT);
+			inputMonth = scanner.nextInt();
+			if (inputMonth == -1) {
+				break;
+			}
+			if(inputMonth > 12) {
+				continue;
+			}
+			System.out.printf("입력한 %d월은 %d일 까지 있습니다. \n", inputMonth, cal.maxDaysofMonth(inputMonth));
 		}
 		
 		System.out.println("Bye~");
