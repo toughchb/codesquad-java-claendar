@@ -20,7 +20,7 @@ public class Calendar {
 		//int inputMonth = Integer.parseInt(s1);
 		int inputMonth = scanner.nextInt();
 		
-		System.out.printf("입력한 %d월은 %d일 까지 있습니다. ",inputMonth,month[inputMonth+1]);
+		System.out.printf("입력한 %d월은 %d일 까지 있습니다. ",inputMonth,month[inputMonth-1]);
 		
 		
 	}
