@@ -37,9 +37,6 @@ public class Prompt {
 			System.out.println("원하는 월을 입력 하세요(1~12)");
 			System.out.print(PROMPT);
 			inputMonth = scanner.nextInt();
-			System.out.println("첫번째 날 요일을 입력 하세요(su,mo,tu,we,th,fr,sa)");
-			String str_weekday = scanner.next();
-			weekday = parseDay(str_weekday);
 			
 			if ((inputMonth == -1)||(inputYear==-1)) {
 				break;
@@ -48,7 +45,7 @@ public class Prompt {
 				System.out.println("Wrong input");
 				continue;
 			}
-			cal.printCalendar(inputYear, inputMonth,weekday);
+			cal.printCalendar(inputYear, inputMonth);
 			//System.out.printf("입력한 %d월은 %d일 까지 있습니다. \n", inputMonth, cal.maxDaysofMonth(inputMonth));
 		}
 		

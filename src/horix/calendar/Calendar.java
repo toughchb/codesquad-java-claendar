@@ -20,10 +20,12 @@ public class Calendar {
 		}
 	}
 	
-	public void printCalendar(int year,int month,int weekday) {
-		System.out.printf("    <<%4d년  %3d월>>\n",year, month);
+	public void printCalendar(int year,int month) {
+		System.out.printf("    <<%d년  %d월>>\n",year, month);
 		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("--------------------");
+		
+		int weekday = getWeekDay(year, month,1);
 		
 		//print blank space
 		for(int i =0; i<weekday;i++) {
@@ -34,13 +36,6 @@ public class Calendar {
 		int count = 7 - weekday;
 		int delim = count;
 		
-		//print first line
-		//for (int i = 1; i <= count; i++) {
-		//	System.out.printf("%3d", i);
-		//}
-		//System.out.println();
-		//print from second line to last
-		//for (int i = count; i<= maxDay; i++) {
 			for (int i = 1; i<= maxDay; i++) {
 			System.out.printf("%3d",i);
 			if((i+weekday) % 7 == 0)
@@ -48,6 +43,24 @@ public class Calendar {
 		}
 		System.out.println();
 		System.out.println();
+	}
+
+	private int getWeekDay(int year, int month, int day) {
+		//기준 날짜 요일을 1970 년 1월 1일 목요일 부터
+		int syear = 1970;
+		int smonth = 1;
+		int sday = 1;
+		int sweekday = 3;
+				
+		int count = 0;
+		for(int i = syear; i < year; i++)
+		{
+			int delta = isLeapYear(year) ? 366 : 365;
+			count += delta;
+			
+		}
+		System.out.println();
+		return 0;
 	}
 
 }
